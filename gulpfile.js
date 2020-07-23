@@ -7,15 +7,17 @@ const gulp = require("gulp"),
     imagemin = require('gulp-imagemin'),
     newer = require('gulp-newer'),
     plumber = require('gulp-plumber'),
-    autoprefixer = require("autoprefixer"),
+    autoPrefixer = require("autoprefixer"),
     sourcemaps = require("gulp-sourcemaps"),
     browserSync = require("browser-sync").create(),
     bourbon = require('node-bourbon').includePaths,
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify-es').default,
     babel = require("gulp-babel"),
-    normalize = require('node-normalize-scss'),
-    file = require('gulp-file');
+    browserify = require('gulp-bro'),
+    babelify = require('babelify'),
+    resets = require('scss-resets').includePaths,
+    file = require('gulp-file')
 
 let config = {
       cname: ''
@@ -39,7 +41,7 @@ let paths ={
     dest: "_dist/images"
   },
   scripts: {
-    src: "src/assets/scripts/**/*.js",
+    src: ["src/assets/scripts/**/*.js"],
     dest: "_dist/scripts"
   },
   fonts: {
@@ -52,10 +54,10 @@ function style() {
     .src(paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(sass({
-      includePaths: bourbon,
+      includePaths: resets.concat(bourbon),
       outputStyle: "expanded"
     }).on('error', sass.logError))
-    .pipe(postcss([autoprefixer()]))
+    .pipe(postcss([autoPrefixer()]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream());
@@ -99,12 +101,16 @@ function images () {
     .pipe(browserSync.stream());
 }
 function scripts() {
-  return gulp.src(paths.scripts.src)
-    .pipe(sourcemaps.init())
-    .pipe(concat('script.js'))
-    .pipe(babel())
+  return gulp.src("src/assets/scripts/script.js")
+    .pipe(browserify({
+      debug: true,
+      transform: [babelify.configure({
+        sourceMaps: true,
+      }),
+
+      ]
+    }))
     // .pipe(uglify())
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
 }
 function fonts() {
