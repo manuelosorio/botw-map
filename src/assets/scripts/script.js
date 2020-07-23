@@ -1,5 +1,11 @@
+import {icons} from './modules/icons';
+import {routes} from "./modules/routes";
 window.addEventListener('load', (event) => {
   routes();
+
+  for (let icon of icons) {
+    console.log(icon);
+  }
   let $icons = $('.icon')
   let $map = $('.map-container')
   let startPos;
@@ -14,15 +20,13 @@ window.addEventListener('load', (event) => {
         if (ui.position.left < x1 && ui.position.left > x2 && ui.position.left !== x2 && (ui.position.left !== x1 || ui.position.left !== x2)) {
           console.log('can move x')
           return true;
-        } else {
-          console.log('can\'t move x')
-          return false
-        }
-        if (ui.position.top < y1 && ui.position.top > y2 && (ui.position.top !== y1 || ui.position.top !== y2)) {
+        } else if ((ui.position.top < y1 && ui.position.top > y2 &&
+
+          ui.position.top !== y2) && (ui.position.top !== y1 || ui.position.top !== y2)) {
           console.log('can move y')
           return true;
         } else {
-          console.log('can\'t move y')
+          // console.log('can\'t move y')
           return false;
         }
       }

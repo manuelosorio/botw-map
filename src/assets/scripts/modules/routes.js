@@ -1,8 +1,9 @@
+// import Navigo from "navigo";
 let root = null;
 let useHash = true; // Defaults to: false
 let hash = '#!'; // Defaults to: '#'
 let router = new Navigo(root, useHash, hash);
-function routes() {
+export function routes() {
   router.on(function () {
     alert('hello router!');
   })
