@@ -58,7 +58,7 @@ function style() {
       outputStyle: "expanded"
     }).on('error', sass.logError))
     .pipe(postcss([autoPrefixer()]))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream());
 }
