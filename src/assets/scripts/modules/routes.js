@@ -8,9 +8,15 @@ let hash = '#'; // Defaults to: '#'
 let router = new Navigo(root, useHash, hash);
 export function routes() {
   router.on(function () {
-    alert('hello router!');
+    $('.map-container').css({
+      'top': '-1686px',
+      'left': '-800px'
+    })
   })
-  router.navigate('#')
+  if (!(window.location.href.indexOf('/#/')>1)) {
+    console.log(false)
+    router.navigate('/')
+  }
   router.on('/:slug', (params) => {
     // let slug = params.slug
     let icon = findIcon(params.slug)
@@ -18,7 +24,6 @@ export function routes() {
     let iconPosTop = ((($icon.css('top').replace('px', ''))* -1) + 'px')
     let iconPosLeft = ((($icon.css('left').replace('px', ''))* -.75)  + 'px')
     let $mapContainer = $('.map-container');
-
 
     $mapContainer.animate({
       top: iconPosTop,
@@ -33,7 +38,7 @@ export function routes() {
       db.close()
     });
 
-  }).resolve();
+  })
   // router.notFound(()=> {
   //   alert('404 not found')
   // })
