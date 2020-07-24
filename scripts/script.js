@@ -357,8 +357,7 @@ function routes() {
   router.resolve();
   $('.icon').on('click', function (e) {
     var currentIcon = (0, _icons.findIcon)(e.currentTarget.className.replace('icon icon--', ''));
-    console.log(currentIcon);
-    router.navigate(currentIcon.slug);
+    router.navigate("/".concat(currentIcon.slug));
   });
 }
 
