@@ -12,7 +12,19 @@ export function routes() {
   router.on('/:slug', (params) => {
     // let slug = params.slug
     let icon = icons.find(value => value.slug === params.slug)
-    console.log(icon)
+    let $icon = $('.icon--' + icon.slug)
+    let iconPosTop = ((($icon.css('top').replace('px', ''))* -1) + 'px')
+    let iconPosLeft = ((($icon.css('left').replace('px', ''))* -.75)  + 'px')
+    let $mapContainer = $('.map-container');
+    $mapContainer.animate({
+      top: iconPosTop,
+      left: iconPosLeft
+    }, 1000, function() {})
+    console.log('.icon--' + icon.slug)
+    console.log(`Icon: ${$icon.css('top')} ${$icon.css('left')}`)
+    console.log(`Icon: ${iconPosTop} ${iconPosLeft}`)
+
+    console.log(`Map:  ${$mapContainer.css('top')} ${$mapContainer.css('left')}`)
   })
   // router.notFound(()=> {
   //   alert('404 not found')
