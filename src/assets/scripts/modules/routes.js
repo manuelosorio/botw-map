@@ -1,5 +1,6 @@
 // import Navigo from "navigo";
 import {icons} from "./icons";
+import {DataBox} from "./databox";
 
 let root = 'http://localhost:3000/';
 let useHash = true; // Defaults to: false
@@ -17,7 +18,6 @@ export function routes() {
     let iconPosLeft = ((($icon.css('left').replace('px', ''))* -.75)  + 'px')
     let $mapContainer = $('.map-container');
 
-    let dataBox = document.querySelector('.data-box');
 
     $mapContainer.animate({
       top: iconPosTop,
@@ -29,22 +29,18 @@ export function routes() {
 
     console.log(`Map:  ${$mapContainer.css('top')} ${$mapContainer.css('left')}`)
 
-    dataBox.innerHTML = `
-      <h1>${icon.name}</h1>
-      <p>Location: <em>${icon.location}</em></p>
-      <p>${icon.description}</p>
-    `
+    let db = new DataBox();
+    db.createData(icon);
+
+    const closeButton = document.querySelector('#close');
+    $(closeButton).on('click', () => {
+      db.close()
+    });
 
   })
   // router.notFound(()=> {
   //   alert('404 not found')
   // })
   router.resolve();
+  $
 }
-// export function routes() {
-//   let root = null
-//   let useHash = true // Defaults to: false
-//   let hash = '#!' // Defaults to: '#'
-//   let route: Navigo = new Navigo(root, useHash, hash);;
-//   alert('routes')
-// }
