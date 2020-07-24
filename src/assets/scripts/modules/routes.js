@@ -45,7 +45,6 @@ export function routes() {
   router.resolve();
   $('.icon').on('click', (e) => {
     const currentIcon = findIcon(e.currentTarget.className.replace('icon icon--', ''))
-    console.log(currentIcon)
-    router.navigate(`/#/${currentIcon.slug}`);
-  })
+    router.navigate(`/${currentIcon.slug}`);
+  });
 }
