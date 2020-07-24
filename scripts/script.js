@@ -75,7 +75,7 @@ var DataBox = /*#__PURE__*/function () {
     key: "createData",
     value: function createData(icon) {
       console.log(icon);
-      this.dataBox.innerHTML = "\n      <h1>".concat(icon.name, "</h1>\n      <p>Location: <em>").concat(icon.location, "</em></p>\n      <p>").concat(icon.description, "</p>\n      <button id=\"close\">Close</button>\n    ");
+      this.dataBox.innerHTML = "\n      <h1>".concat(icon.name, "</h1>\n      <p>Location: <em>").concat(icon.location, "</em></p>\n      <p>").concat(icon.description, "</p>\n      <button id=\"close\" class=\"btn\">Close</button>\n    ");
       $(this.dataBox).animate({
         'opacity': '1',
         'transform': 'scale(1, 1)'

@@ -394,7 +394,7 @@ body {
   background: #3d2e00;
   overflow: hidden;
   position: relative;
-  font: 400 1.2rem/1 "Open Sans", sans-serif;
+  font: 400 1.2rem/1.25 "Open Sans", sans-serif;
 }
 
 h1 {
@@ -449,6 +449,14 @@ nav a:hover {
   color: white;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: black;
+}
+
 /*----------------------  End Base  ---------------------- */
 /*----------------------  3 [Layout]  ----------------------
  * /**
@@ -489,6 +497,21 @@ nav a:hover {
  *  * <div class="module module--element__modifier"> ... </div>
  *  *
  *  * */
+.btn {
+  background: #5CC5FF;
+  padding: 1rem 2rem;
+  width: 7rem;
+  margin: 2rem auto 0;
+  text-align: center;
+  -webkit-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+.btn:hover {
+  background: #10aaff;
+  color: #f2f2f2;
+}
+
 .data-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -508,6 +531,17 @@ nav a:hover {
   padding: 1rem 2.5rem 2.5rem;
   opacity: 0;
   margin: 0;
+  border: 10px solid #5CC5FF;
+  border-radius: 20px;
+  background: rgba(18, 18, 18, 0.5);
+  background: -o-radial-gradient(circle, #595959 0%, rgba(18, 18, 18, 0.7) 100%);
+  background: radial-gradient(circle, #595959 0%, rgba(18, 18, 18, 0.7) 100%);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.data-box * {
+  color: #FFFFFF;
 }
 
 .icon {
