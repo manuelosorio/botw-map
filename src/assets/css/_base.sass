@@ -9,10 +9,21 @@
     *
     *
 
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  &:before + &:after
+    box-sizing: inherit
+  + *
+    margin-top: 1rem
 
 body
   background: #3d2e00
   overflow: hidden
   position: relative
-
+h1
+  margin-bottom: 0
+  + p
+    margin-top: 0
 /*----------------------  End Base  ----------------------

@@ -16,6 +16,9 @@ export function routes() {
     let iconPosTop = ((($icon.css('top').replace('px', ''))* -1) + 'px')
     let iconPosLeft = ((($icon.css('left').replace('px', ''))* -.75)  + 'px')
     let $mapContainer = $('.map-container');
+
+    let dataBox = document.querySelector('.data-box');
+
     $mapContainer.animate({
       top: iconPosTop,
       left: iconPosLeft
@@ -25,6 +28,13 @@ export function routes() {
     console.log(`Icon: ${iconPosTop} ${iconPosLeft}`)
 
     console.log(`Map:  ${$mapContainer.css('top')} ${$mapContainer.css('left')}`)
+
+    dataBox.innerHTML = `
+      <h1>${icon.name}</h1>
+      <p>Location: <em>${icon.location}</em></p>
+      <p>${icon.description}</p>
+    `
+
   })
   // router.notFound(()=> {
   //   alert('404 not found')

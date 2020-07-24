@@ -7,9 +7,9 @@ export class Nav {
       const slug = icon.slug;
       const name = icon.name;
       this.$nav.innerHTML += `
-      <li>
-        <a href=\"/#/${slug}\">${name}</a>
-      </li>
+        <li>
+          <a href=\"/#/${slug}\">${name}</a>
+        </li>
       `
     }
   }
