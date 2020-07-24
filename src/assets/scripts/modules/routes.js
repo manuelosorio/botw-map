@@ -1,8 +1,8 @@
 // import Navigo from "navigo";
-import {icons} from "./icons";
+import {findIcon} from "./icons";
 import {DataBox} from "./databox";
 
-let root = 'http://localhost:3000/';
+let root = 'null';
 let useHash = true; // Defaults to: false
 let hash = '#'; // Defaults to: '#'
 let router = new Navigo(root, useHash, hash);
@@ -10,9 +10,10 @@ export function routes() {
   router.on(function () {
     alert('hello router!');
   })
+  router.navigate('#')
   router.on('/:slug', (params) => {
     // let slug = params.slug
-    let icon = icons.find(value => value.slug === params.slug)
+    let icon = findIcon(params.slug)
     let $icon = $('.icon--' + icon.slug)
     let iconPosTop = ((($icon.css('top').replace('px', ''))* -1) + 'px')
     let iconPosLeft = ((($icon.css('left').replace('px', ''))* -.75)  + 'px')
@@ -23,11 +24,6 @@ export function routes() {
       top: iconPosTop,
       left: iconPosLeft
     }, 1000, function() {})
-    console.log('.icon--' + icon.slug)
-    console.log(`Icon: ${$icon.css('top')} ${$icon.css('left')}`)
-    console.log(`Icon: ${iconPosTop} ${iconPosLeft}`)
-
-    console.log(`Map:  ${$mapContainer.css('top')} ${$mapContainer.css('left')}`)
 
     let db = new DataBox();
     db.createData(icon);
@@ -37,10 +33,14 @@ export function routes() {
       db.close()
     });
 
-  })
+  }).resolve();
   // router.notFound(()=> {
   //   alert('404 not found')
   // })
   router.resolve();
-  $
+  $('.icon').on('click', (e) => {
+    const currentIcon = findIcon(e.currentTarget.className.replace('icon icon--', ''))
+    console.log(currentIcon)
+    router.navigate(`/#/${currentIcon.slug}`);
+  })
 }

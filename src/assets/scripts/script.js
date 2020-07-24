@@ -2,7 +2,7 @@ import {iconHover, iconHoverEnd, iconsDiv} from './modules/icons';
 import {routes} from "./modules/routes";
 import {Nav} from "./modules/navigation";
 
-$(window).ready((e) => {
+$(window).ready(() => {
   routes();
   const nav = new Nav()
   nav.createNav();

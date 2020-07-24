@@ -143,3 +143,6 @@ export function iconHoverEnd(parent) {
     'opacity': '0'
   }, 300, 'linear')
 }
+export function findIcon(slug) {
+  return icons.find(value => value.slug === slug)
+}
