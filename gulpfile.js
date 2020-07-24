@@ -105,13 +105,16 @@ function scripts() {
     .pipe(browserify({
       debug: true,
       transform: [babelify.configure({
-        sourceMaps: true,
+        sourceMaps: true
       }),
 
       ]
     }))
+    .pipe(sourcemaps.init({loadMaps: true}))
     // .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest))
+
 }
 function fonts() {
   return gulp.src(paths.fonts.src)
