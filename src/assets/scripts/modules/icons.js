@@ -83,7 +83,7 @@ export const icons = [
     name: 'Milpha\'s Grace',
     description: '',
     category: 'KeyItem',
-    slug: 'milpha-grace'
+    slug: 'mipha-grace'
   },
   {
     name: 'Revali\'s Gale',
