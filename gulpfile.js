@@ -1,7 +1,7 @@
 const gulp = require("gulp"),
     clean = require("gulp-clean"),
     deploy = require('gulp-gh-pages'),
-    sass = require("gulp-sass"),
+    sass = require("gulp-dart-sass"),
     postcss = require("gulp-postcss"),
     pug = require("gulp-pug"),
     imagemin = require('gulp-imagemin'),
