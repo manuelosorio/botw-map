@@ -7,7 +7,7 @@ export class DataBox {
       <h1>${icon.name}</h1>
       <p>Location: <em>${icon.location}</em></p>
       <p>${icon.description}</p>
-      <button id="close">Close</button>
+      <button id="close" class="btn">Close</button>
     `
     $(this.dataBox).animate({
       'opacity': '1',

@@ -1,3 +1,4 @@
+@use "../vars"
 .data-box
   display: flex
   position: fixed
@@ -10,3 +11,11 @@
   padding: 1rem 2.5rem 2.5rem
   opacity: 0
   margin: 0
+  border: 10px solid vars.$primary
+  border-radius: 20px
+  //background: rgb(vars.$grey)
+  background: rgba(vars.$black, .5)
+  background: radial-gradient(circle, rgba(vars.$grey,1) 0%, rgba(vars.$black, .70) 100%)
+  justify-content: center
+  *
+    color: vars.$white
