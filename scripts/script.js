@@ -253,6 +253,76 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Meta = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var Meta = /*#__PURE__*/function () {
+  // title LoZ: Breath of The Wild
+  // meta(name="Author" content="Manuel Osorio")
+  // meta(name="description" content="Interactive Map showing locations of important mostly important items")
+  //
+  // // Open Graph - Facebook, Google, LinkedIn
+  // meta(property="og:type" content="Article")
+  // meta(property="og:description" content="Interactive Map showing locations of important mostly important items")
+  // meta(property="og:image" content="./images/thumb.png")
+  // meta(property="og:url" content="#")
+  // meta(property="og:site_name" content="LoZ: Breath of The Wild")
+  // //end Open Graph
+  //
+  // //Twitter Meta Content
+  // meta(name="twitter:title" content="LoZ: Breath of The Wild")
+  // meta(name="twitter:description" content="Interactive Map showing locations of important mostly important items")
+  // meta(name="twitter:image" content="./images/thumb.png")
+  // meta(name="twitter:site" content="@MKDesignzManuel")
+  // meta(name="twitter:creator" content="@MKDesignzManuel")
+  function Meta(title, description, slug) {
+    (0, _classCallCheck2["default"])(this, Meta);
+    (0, _defineProperty2["default"])(this, "title", '');
+    (0, _defineProperty2["default"])(this, "description", '');
+    (0, _defineProperty2["default"])(this, "slug", '');
+    this.title = title;
+    this.description = description;
+    this.slug = slug;
+  }
+
+  (0, _createClass2["default"])(Meta, [{
+    key: "browser",
+    value: function browser() {
+      document.querySelector('title').innerHTML = this.title;
+      document.querySelector('meta[name="description"]').setAttribute('content', this.description);
+    }
+  }, {
+    key: "openGraph",
+    value: function openGraph() {
+      document.querySelector('meta[property="og:site_name"]').setAttribute('content', this.title);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', this.description);
+      document.querySelector('meta[property="og:url"]').setAttribute('content', this.slug);
+    }
+  }, {
+    key: "twitter",
+    value: function twitter() {
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', this.title);
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', this.description);
+    }
+  }]);
+  return Meta;
+}();
+
+exports.Meta = Meta;
+
+},{"@babel/runtime/helpers/classCallCheck":1,"@babel/runtime/helpers/createClass":2,"@babel/runtime/helpers/defineProperty":3,"@babel/runtime/helpers/interopRequireDefault":4}],8:[function(require,module,exports){
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.Nav = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
@@ -300,7 +370,7 @@ var Nav = /*#__PURE__*/function () {
 
 exports.Nav = Nav;
 
-},{"./icons":6,"@babel/runtime/helpers/classCallCheck":1,"@babel/runtime/helpers/createClass":2,"@babel/runtime/helpers/defineProperty":3,"@babel/runtime/helpers/interopRequireDefault":4}],8:[function(require,module,exports){
+},{"./icons":6,"@babel/runtime/helpers/classCallCheck":1,"@babel/runtime/helpers/createClass":2,"@babel/runtime/helpers/defineProperty":3,"@babel/runtime/helpers/interopRequireDefault":4}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -312,6 +382,8 @@ var _icons = require("./icons");
 
 var _databox = require("./databox");
 
+var _meta = require("./meta");
+
 // import Navigo from "navigo";
 var root = 'null';
 var useHash = true; // Defaults to: false
@@ -321,11 +393,21 @@ var hash = '#'; // Defaults to: '#'
 var router = new Navigo(root, useHash, hash);
 
 function routes() {
+  var title = "LoZ: Breath of The Wild",
+      description = "Interactive Map showing locations of important mostly important items",
+      slug = "https://botw.manuelosorio.me/#/";
   router.on(function () {
     $('.map-container').css({
       'top': '-1686px',
       'left': '-800px'
     });
+    title = "LoZ: Breath of The Wild";
+    description = "Interactive Map showing locations of important mostly important items";
+    slug = "https://botw.manuelosorio.me/#/";
+    var meta = new _meta.Meta(title, description, slug);
+    meta.browser();
+    meta.openGraph();
+    meta.twitter();
   });
 
   if (!(window.location.href.indexOf('/#/') > 1)) {
@@ -340,6 +422,13 @@ function routes() {
     var iconPosTop = $icon.css('top').replace('px', '') * -1 + 'px';
     var iconPosLeft = $icon.css('left').replace('px', '') * -.75 + 'px';
     var $mapContainer = $('.map-container');
+    title += ": ".concat(icon.name);
+    description = icon.description.slice(0, 120).concat('...');
+    slug += icon.slug;
+    var meta = new _meta.Meta(title, description, slug);
+    meta.browser();
+    meta.openGraph();
+    meta.twitter();
     $mapContainer.animate({
       top: iconPosTop,
       left: iconPosLeft
@@ -361,7 +450,7 @@ function routes() {
   });
 }
 
-},{"./databox":5,"./icons":6}],9:[function(require,module,exports){
+},{"./databox":5,"./icons":6,"./meta":7}],10:[function(require,module,exports){
 "use strict";
 
 var _icons = require("./modules/icons");
@@ -407,6 +496,6 @@ $(window).ready(function () {
   });
 });
 
-},{"./modules/icons":6,"./modules/navigation":7,"./modules/routes":8}]},{},[9])
+},{"./modules/icons":6,"./modules/navigation":8,"./modules/routes":9}]},{},[10])
 
 //# sourceMappingURL=script.js.map
