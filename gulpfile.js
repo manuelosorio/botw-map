@@ -20,7 +20,7 @@ const gulp = require("gulp"),
     file = require('gulp-file')
 
 let config = {
-      cname: ''
+      cname: 'botw.manuelosorio.me'
 }
 let paths ={
   styles: {
@@ -159,7 +159,6 @@ gulp.task('deploy', function () {
 return gulp.src("./_dist/**/*")
   .pipe(file('CNAME', config.cname))
   .pipe(deploy({
-    remoteUrl: "https://github.com/manuelosorio/starter-kit.git",
-    branch: "gh-pages"
+    remoteUrl: "git@github.com:manuelosorio/botw-map.git"
   }))
 })
