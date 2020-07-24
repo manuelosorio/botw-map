@@ -108,6 +108,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.iconsDiv = iconsDiv;
 exports.iconHover = iconHover;
 exports.iconHoverEnd = iconHoverEnd;
+exports.findIcon = findIcon;
 exports.icons = void 0;
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
@@ -238,6 +239,12 @@ function iconHoverEnd(parent) {
   }, 300, 'linear');
 }
 
+function findIcon(slug) {
+  return icons.find(function (value) {
+    return value.slug === slug;
+  });
+}
+
 },{}],7:[function(require,module,exports){
 "use strict";
 
@@ -306,7 +313,7 @@ var _icons = require("./icons");
 var _databox = require("./databox");
 
 // import Navigo from "navigo";
-var root = 'http://localhost:3000/';
+var root = 'null';
 var useHash = true; // Defaults to: false
 
 var hash = '#'; // Defaults to: '#'
@@ -315,14 +322,20 @@ var router = new Navigo(root, useHash, hash);
 
 function routes() {
   router.on(function () {
-    alert('hello router!');
+    $('.map-container').css({
+      'top': '-1686px',
+      'left': '-800px'
+    });
   });
+
+  if (!(window.location.href.indexOf('/#/') > 1)) {
+    console.log(false);
+    router.navigate('/');
+  }
+
   router.on('/:slug', function (params) {
     // let slug = params.slug
-    var icon = _icons.icons.find(function (value) {
-      return value.slug === params.slug;
-    });
-
+    var icon = (0, _icons.findIcon)(params.slug);
     var $icon = $('.icon--' + icon.slug);
     var iconPosTop = $icon.css('top').replace('px', '') * -1 + 'px';
     var iconPosLeft = $icon.css('left').replace('px', '') * -.75 + 'px';
@@ -331,10 +344,6 @@ function routes() {
       top: iconPosTop,
       left: iconPosLeft
     }, 1000, function () {});
-    console.log('.icon--' + icon.slug);
-    console.log("Icon: ".concat($icon.css('top'), " ").concat($icon.css('left')));
-    console.log("Icon: ".concat(iconPosTop, " ").concat(iconPosLeft));
-    console.log("Map:  ".concat($mapContainer.css('top'), " ").concat($mapContainer.css('left')));
     var db = new _databox.DataBox();
     db.createData(icon);
     var closeButton = document.querySelector('#close');
@@ -346,7 +355,11 @@ function routes() {
   // })
 
   router.resolve();
-  $;
+  $('.icon').on('click', function (e) {
+    var currentIcon = (0, _icons.findIcon)(e.currentTarget.className.replace('icon icon--', ''));
+    console.log(currentIcon);
+    router.navigate("/#/".concat(currentIcon.slug));
+  });
 }
 
 },{"./databox":5,"./icons":6}],9:[function(require,module,exports){
@@ -358,7 +371,7 @@ var _routes = require("./modules/routes");
 
 var _navigation = require("./modules/navigation");
 
-$(window).ready(function (e) {
+$(window).ready(function () {
   (0, _routes.routes)();
   var nav = new _navigation.Nav();
   nav.createNav();
