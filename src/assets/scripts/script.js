@@ -1,4 +1,4 @@
-import {icons} from './modules/icons';
+import {iconHover, iconHoverEnd, iconsDiv} from './modules/icons';
 import {routes} from "./modules/routes";
 import {Nav} from "./modules/navigation";
 
@@ -6,13 +6,7 @@ $(window).ready((e) => {
   routes();
   const nav = new Nav()
   nav.createNav();
-  // for (let icon of icons) {
-  //   console.log(icon);
-  // }
-  let $icons = $('.icon')
   let $map = $('.map-container')
-  let startPos;
-  // $icons.draggable();
   let x1 = '0'
   let x2 = '-2058'
   let y1 =  '0'
@@ -34,9 +28,16 @@ $(window).ready((e) => {
         }
       }
   })
-
-
+  iconsDiv();
+  const $icon = $('.icon');
+  $icon.on('mouseenter', (e) => {
+    iconHover(e.currentTarget.className.replace('icon ', ''))
+  });
+  $icon.on('mouseleave', (e) => {
+    iconHoverEnd(e.currentTarget.className.replace('icon ', ''))
+  });
   $map.on('mousedown', () => {
     console.log($map.position());
   })
+
 })

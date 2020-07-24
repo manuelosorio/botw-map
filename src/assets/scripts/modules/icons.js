@@ -71,7 +71,7 @@ export const icons = [
   {
     name: 'Master Sword',
     location: 'Korok Forest',
-    description: 'The Master Sword is the legendary weapon wielded by Link with the ability to vanquish evil. In breath of the wild the master sword will have a blue glow when near the calamity (including infested enemies, when in divine beasts, and all guardians). When the blading is glowing, its strength is boosted to 60 damage.',
+    description: `The Master Sword is the legendary weapon wielded by Link with the ability to vanquish evil. In breath of the wild the master sword will have a blue glow when near the calamity (including infested enemies, when in divine beasts, and all guardians). When the blading is glowing, its strength is boosted to 60 damage. <br />Although the sword has durability, unlike other weapons it doesn\'t get destroyed. When the durability is depleted the sword has a cool down period before its usable again. <br />Additionally through the Trail of the sword DLC you are able to improve the Master Sword damage and durability. The Trial of the sword consist of 3 trials with increasing difficulty. Each trial are a series of challenge you most face, each trial also upgrading the Master sword.`,
     category: 'item',
     slug: 'master-sword'
   },
@@ -125,3 +125,21 @@ export const icons = [
     slug: 'master-torch'
   }
 ];
+export function iconsDiv() {
+  for (let icon of icons) {
+    let iconContainer = document.querySelector(`.icon--${icon.slug}`);
+    iconContainer.innerHTML += `
+      <p class="icon--name"><strong>${icon.name}</strong></p>
+    `
+  }
+}
+export function iconHover(parent) {
+  $(`.${parent} .icon--name`).animate({
+    'opacity': '1'
+  }, 300, 'linear')
+}
+export function iconHoverEnd(parent) {
+  $(`.${parent} .icon--name`).animate({
+    'opacity': '0'
+  }, 300, 'linear')
+}
