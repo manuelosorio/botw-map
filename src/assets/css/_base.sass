@@ -1,3 +1,4 @@
+@use 'vars'
 /*----------------------  2 [Base]  ----------------------
   /**
     * Base syntax should not contain any classes, id or use attribute selectors of any kind.
@@ -8,7 +9,6 @@
     * header { ... }
     *
     *
-
 *
   margin: 0
   padding: 0
@@ -17,11 +17,13 @@
     box-sizing: inherit
   + *
     margin: 1rem 0 0
-
+html
+  font-size: 100%
 body
   background: #3d2e00
   overflow: hidden
   position: relative
+  font: vars.$weight--regular 1.2rem/1 vars.$font--open-sans
 h1
   margin-bottom: 0
   + p
@@ -30,4 +32,29 @@ br
   height: 1rem
   content: ''
   display: block
+
+nav
+  display: flex
+  position: fixed
+  z-index: 10
+  justify-content: center
+  align-content: center
+  flex-direction: column
+  max-width: 20%
+  margin: 0
+  height: 100vh
+  background: rgb(50,50,50)
+  background: linear-gradient(90deg, rgba(10, 10, 10,1) 0%, rgba(50,50,50,0.05) 100%)
+  top: 0
+  padding: 1rem 2rem
+  //ul
+  li
+    list-style: none
+  a
+    text-decoration: none
+    color: rgba(vars.$white, .80)
+    transition: 200ms ease-in-out
+    &:hover
+      color: rgba(vars.$white, 1)
+
 /*----------------------  End Base  ----------------------
