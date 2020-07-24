@@ -101,7 +101,7 @@ function images () {
     .pipe(browserSync.stream());
 }
 function scripts() {
-  return gulp.src("src/assets/scripts/script.js")
+  return gulp.src(["src/assets/scripts/script.js", "src/assets/scripts/core.js"])
     .pipe(browserify({
       debug: true,
       transform: [babelify.configure({

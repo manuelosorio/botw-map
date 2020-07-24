@@ -1,11 +1,14 @@
 import {icons} from './modules/icons';
 import {routes} from "./modules/routes";
-window.addEventListener('load', (event) => {
-  routes();
+import {Nav} from "./modules/navigation";
 
-  for (let icon of icons) {
-    console.log(icon);
-  }
+$(window).ready((e) => {
+  routes();
+  const nav = new Nav()
+  nav.createNav();
+  // for (let icon of icons) {
+  //   console.log(icon);
+  // }
   let $icons = $('.icon')
   let $map = $('.map-container')
   let startPos;
@@ -37,4 +40,3 @@ window.addEventListener('load', (event) => {
     console.log($map.position());
   })
 })
-
