@@ -2,10 +2,9 @@ export class DataBox {
   dataBox= document.querySelector('.data-box');
   constructor() {}
   createData(icon) {
-    console.log(icon)
     this.dataBox.innerHTML = `
-      <h1>${icon.name}</h1>
-      <p>Location: <em>${icon.location}</em></p>
+      <h1 class="data-box--title">${icon.name}</h1>
+      <p class="data-box--location">Location: <em>${icon.location}</em></p>
       <p>${icon.description}</p>
       <button id="close" class="btn">Close</button>
     `
