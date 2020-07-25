@@ -39,5 +39,7 @@ $(window).ready(() => {
   $map.on('mousedown', () => {
     console.log($map.position());
   })
-
+  $('.menu').on('click', function(){
+    $(this).toggleClass('is-active');
+  });
 })

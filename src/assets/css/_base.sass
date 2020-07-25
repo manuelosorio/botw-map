@@ -47,9 +47,18 @@ nav
   background: linear-gradient(90deg, rgba(10, 10, 10,1) 0%, rgba(50,50,50,0.05) 100%)
   top: 0
   padding: 1rem 2rem
-  //ul
+  ul
+    opacity: 0
+    transform: translateY(-200%)
+    transition: 300ms ease-in-out
   li
+    transform: translateY(-100%)
     list-style: none
+    transition: 200ms ease-in-out
+    + li
+      transition-delay: 200ms
+      transition: 200ms ease-in-out
+      transform: translateY(-100%)
   a
     text-decoration: none
     color: rgba(vars.$white, .80)

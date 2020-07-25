@@ -1,0 +1,22 @@
+@use '../vars'
+.menu
+  margin: .125rem
+  position: fixed
+  +size(5.5rem)
+  cursor: pointer
+  transition: 250ms ease-in-out
+  padding: 1rem
+  top: 0
+  //overflow: hidden
+  &:hover .menu--bar
+    opacity: 1
+  &:focus
+    outline: none
+  .menu--bar
+    height: 0.6rem
+    transition: 250ms ease-in-out
+    background: vars.$white
+    opacity: 0.80
+    margin-bottom: .3125rem
+  &:focus
+    outline: none

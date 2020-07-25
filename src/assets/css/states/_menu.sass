@@ -1,0 +1,15 @@
+.menu
+  &.is-active
+    transform: rotate(90deg)
+    .menu--bar:first-child
+      transform: translate(0, 1rem) rotate(45deg)
+    .menu--bar:nth-child(2)
+      transform: translate(10px, 0)
+      opacity: 0
+    .menu--bar:last-child
+      transform: translate(0, -2rem) rotate(-45deg)
+    + ul
+      opacity: 1
+      transform: scale(1) translateY(0)
+      li
+        transform: translateY(0)
