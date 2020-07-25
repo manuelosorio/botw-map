@@ -1,7 +1,7 @@
 export const icons = [
   {
     name: 'Remote Bomb (Sphere)',
-    location: 'Ja Baij Shrine',
+    location: 'Ja Baij Shrine - Great Plateau',
     description: 'The Remote Bomb is a Rune ability ' +
       'for the Sheikah Slate found in Breath ' +
       'of the Wild. It is obtained in the Ja Baij ' +
@@ -15,7 +15,7 @@ export const icons = [
   },
   {
     name: 'Remote Bomb (Cube) ',
-    location: 'Ja Baij Shrine',
+    location: 'Ja Baij Shrine - Great Plateau',
     description: 'The Remote Bomb is a Rune ability ' +
       'for the Sheikah Slate found in Breath ' +
       'of the Wild. It is obtained in the Ja Baij ' +
@@ -29,7 +29,7 @@ export const icons = [
   },
   {
     name: 'Stasis',
-    location: 'Owa Daime Shrine',
+    location: 'Owa Daime Shrine - Great Plateau',
     description: 'The Stasis Rune is ability obtained ' +
       'in the Owa Daime Shrine at the Great Plateau. ' +
       'Stasis allows link to freeze objects in time for a period of time. ' +
@@ -42,15 +42,15 @@ export const icons = [
   },
   {
     name: 'Magnesis',
-    location: '',
-    description: '',
+    location: 'Oman Au Shrine - Great Plateau',
+    description: 'The Magnesis Rune is obtained in the Oman Au Shrine at the Great Plateau. The Magnesis Rune allows Link to harness magnetic energy to lift and carry metallic objects into the air effortlessly, which can then be moved and placed elsewhere. When the Rune is activated, red grid lines cover Link\'s immediate surroundings. Objects in that area that can be picked up will have a red filter, and will turn yellow as the Rune\'s cursor moves over them, signifying that they can be selected. Once lifted, Link can manipulate the object either by moving it in the air, dropping it, or pushing or pulling it. Metallic Treasur',
     category: 'Rune',
     slug: 'magnesis'
   },
   {
     name: 'Cryonis',
-    location: '',
-    description: '',
+    location: 'Keh Namut Shrine - Great Plateau',
+    description: 'The Cryonis Rune is obtained in the Keh Namut Shrine on the Great Plateau. It allows Link to spontaneously create pillars of Ice from the surface of any body of Water, including Waterfalls. Link can create up to three pillars at once; raising a fourth one breaks the first. In addition to creating pillars, Cryonis can also be used to break these pillars as well. After using the Cryonis Rune to create a pillar, a timer gauge will appear which must fully restore before Link can use it again.',
     category: 'Rune',
     slug: 'cryonis'
   },
@@ -85,41 +85,53 @@ export const icons = [
   {
     name: 'Korok Seeds',
     location: '900 Hidden Locations',
-    description: '',
+    description: 'orok Seeds are given by Koroks when they are found throughout Hyrule. They possess a distinct smell. When Link receives his first Seed, he is asked to return it to the Korok Hestu. Korok Seeds are actually the beads used in Hestu\'s Maracas.' +
+      `<br>`
+      + 'In exchange for Korok Seeds, Hestu will add one slot to Link\'s Weapon, Bow, or Shield stashes. Link can fully upgrade his inventory with only 441 Korok Seeds. If all 900 Seeds are returned to Hestu, he will reward Link with a \"gift of friendship.\"',
     category: 'KeyItem',
     slug: 'korok-seeds'
   },
   {
     name: 'Milpha\'s Grace',
     location: 'Divine Beast Vah Ruta',
-    description: '',
+    description: `You receive Mipha's Grace from the Champion Mipha after defeating Waterblight Ganon and clearing the Divine Beast Vah Ruta. Mipha's Grace protects Link from death and recovers his health, activating only when Link loses all of his Hearts, similarly to using a Fairy. The ability will heal the hero back to full health and also grant him five extra temporary Hearts. It takes priority over any Fairies that Link has in his inventory.
+    <br>
+Mipha's Grace can only be used once before needing to recharge and cannot be used again for 24 real time minutes. While in Hyrule Castle, Mipha's Grace instead takes eight minutes to recharge.`,
     category: 'KeyItem',
     slug: 'mipha-grace'
   },
   {
     name: 'Revali\'s Gale',
     location: 'Divine Beast Vah Medoh',
-    description: '',
+    description: `You receive Revali's Gale from the Rito Champion, Revali, after defeating Windblight Ganon and completing the Divine Beast Vah Medoh. Once the ability is used, it launches Link into the sky and creates an updraft that can be re-used until it disappears. Like all Champion abilities in Breath of the Wild, it can be disabled from the Key Items inventory and cannot be used while inside an Ancient Shrine.
+    <br>
+    Revali's Gale can be used three times before needing to recharge and cannot be used again for six real time minutes. While in Hyrule Castle, Revali's Gale instead takes two minutes to recharge. After being upgraded to Revali's Gale +, its normal recharge time is reduced to two minutes and its charge time inside Hyrule Castle is reduced to forty seconds.`,
     category: 'KeyItem',
     slug: 'revali-gale'
   },
   {
     name: 'Daruk\'s Protection',
     location: 'Divine Beast Vah Rudania',
-    description: '',
+    description: `You receivee Daruk's Protection from the Goron Champion, Daruk, after defeating Fireblight Ganon and completing the Divine Beast Vah Rudania. Daruk's Protection creates a red crystal barrier around Link when used, protecting him from all attacks and damage while up, as well as deflecting certain attacks back such as Guardian beams.
+    <br />
+    Daruk's Protection can be used three times before needing to recharge and cannot be used again for 18 real time minutes. While in Hyrule Castle, Daruk's Protection instead takes six minutes to recharge. After being upgraded to Daruk's Protection +, its normal recharge time is reduced to six minutes and its charge time inside Hyrule Castle is reduced to two minutes.
+    `,
     category: 'KeyItem',
     slug: 'daruk-protection'
   },
   {
     name: 'Urbosa\'s Fury',
     location: 'Divine Beast Vah Naboris',
-    description: '',
+    description: `Link receives Urbosa's Fury from the Champion Urbosa's spirit after defeating Thunderblight Ganon and completing the Divine Beast Vah Naboris.[4] Urbosa's Fury allows Link to send off a massive radius of electrical damage to all enemies and Bosses in the vicinity. The area affected by the attack is depicted by a large green hemisphere of light. It is performed by charging a Spin Attack with any Weapon for a certain amount of time and releasing it. With most Weapons, Urbosa's Fury will be ready when the charging sound of the Spin Attack is heard twice
+    <br>
+  Urbosa's Fury can be used three times before needing to recharge and cannot be used again for 12 real time minutes. While in Hyrule Castle, Urbosa's Fury instead takes four minutes to recharge.   
+`,
     category: 'KeyItem',
     slug: 'urbosa-fury'
   },
   {
     name: 'Master Torch',
-    location: '',
+    location: 'Lanayru Wetlands Stable',
     description: 'The legendary weapon wield by the chosen hero, at least that\'s what Yolero seems to believe.  Than again Yolero also seems to believe that the Master Sword is an off brand knock off. ',
     category: 'Item',
     slug: 'master-torch'
