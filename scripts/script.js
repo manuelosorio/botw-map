@@ -495,6 +495,9 @@ $(window).ready(function () {
   $map.on('mousedown', function () {
     console.log($map.position());
   });
+  $('.menu').on('click', function () {
+    $(this).toggleClass('is-active');
+  });
 });
 
 },{"./modules/icons":6,"./modules/navigation":8,"./modules/routes":9}]},{},[10])

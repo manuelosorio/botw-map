@@ -435,8 +435,34 @@ nav {
   top: 0;
   padding: 1rem 2rem;
 }
+nav ul {
+  opacity: 0;
+  -webkit-transform: translateY(-200%);
+      -ms-transform: translateY(-200%);
+          transform: translateY(-200%);
+  -webkit-transition: 300ms ease-in-out;
+  -o-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
 nav li {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
   list-style: none;
+  -webkit-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+nav li + li {
+  -webkit-transition-delay: 200ms;
+       -o-transition-delay: 200ms;
+          transition-delay: 200ms;
+  -webkit-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 nav a {
   text-decoration: none;
@@ -643,7 +669,71 @@ button {
   height: 3000px;
 }
 
+.menu {
+  margin: 0.125rem;
+  position: fixed;
+  height: 5.5rem;
+  width: 5.5rem;
+  cursor: pointer;
+  -webkit-transition: 250ms ease-in-out;
+  -o-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  padding: 1rem;
+  top: 0;
+}
+.menu:hover .menu--bar {
+  opacity: 1;
+}
+.menu:focus {
+  outline: none;
+}
+.menu .menu--bar {
+  height: 0.6rem;
+  -webkit-transition: 250ms ease-in-out;
+  -o-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+  background: #FFFFFF;
+  opacity: 0.8;
+  margin-bottom: 0.3125rem;
+}
+.menu:focus {
+  outline: none;
+}
+
 /*----------------------  End Modules  ---------------------- */
 /*----------------------  5 [States]  ---------------------- */
+.menu.is-active {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.menu.is-active .menu--bar:first-child {
+  -webkit-transform: translate(0, 1rem) rotate(45deg);
+      -ms-transform: translate(0, 1rem) rotate(45deg);
+          transform: translate(0, 1rem) rotate(45deg);
+}
+.menu.is-active .menu--bar:nth-child(2) {
+  -webkit-transform: translate(10px, 0);
+      -ms-transform: translate(10px, 0);
+          transform: translate(10px, 0);
+  opacity: 0;
+}
+.menu.is-active .menu--bar:last-child {
+  -webkit-transform: translate(0, -2rem) rotate(-45deg);
+      -ms-transform: translate(0, -2rem) rotate(-45deg);
+          transform: translate(0, -2rem) rotate(-45deg);
+}
+.menu.is-active + ul {
+  opacity: 1;
+  -webkit-transform: scale(1) translateY(0);
+      -ms-transform: scale(1) translateY(0);
+          transform: scale(1) translateY(0);
+}
+.menu.is-active + ul li {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
 /*----------------------  End States  ---------------------- */
 /*# sourceMappingURL=style.css.map */
