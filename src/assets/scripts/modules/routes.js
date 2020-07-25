@@ -24,10 +24,28 @@ export function routes() {
     meta.openGraph();
     meta.twitter()
   })
-  if (!(window.location.href.indexOf('/#/')>1)) {
-    console.log(false)
-    router.navigate('/')
-  }
+
+    /*
+      remove fbclid script is from:
+      https://www.michalspacek.com/using-javascript-to-modify-urls-and-hide-fbclid
+     */
+    let param = 'fbclid';
+    if (location.search.indexOf(param + '=') !== -1) {
+      let replace = '';
+      try {
+        let url = new URL(location);
+        url.searchParams.delete(param);
+        replace = url.href;
+      } catch (ex) {
+        let regExp = new RegExp('[?&]' + param + '=.*$');
+        replace = location.search.replace(regExp, '');
+        replace = location.pathname + replace + location.hash;
+      }
+      history.replaceState(null, '', replace);
+    } else if (!(window.location.href.indexOf('/#/')>1)) {
+      console.log(false)
+      router.navigate('/')
+    }
 
   router.on('/:slug', (params) => {
     // let slug = params.slug

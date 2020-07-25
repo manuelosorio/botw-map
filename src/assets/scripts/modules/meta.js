@@ -1,23 +1,4 @@
 export class Meta {
-  // title LoZ: Breath of The Wild
-  // meta(name="Author" content="Manuel Osorio")
-  // meta(name="description" content="Interactive Map showing locations of important mostly important items")
-  //
-  // // Open Graph - Facebook, Google, LinkedIn
-  // meta(property="og:type" content="Article")
-  // meta(property="og:description" content="Interactive Map showing locations of important mostly important items")
-  // meta(property="og:image" content="./images/thumb.png")
-  // meta(property="og:url" content="#")
-  // meta(property="og:site_name" content="LoZ: Breath of The Wild")
-  // //end Open Graph
-  //
-  // //Twitter Meta Content
-  // meta(name="twitter:title" content="LoZ: Breath of The Wild")
-  // meta(name="twitter:description" content="Interactive Map showing locations of important mostly important items")
-  // meta(name="twitter:image" content="./images/thumb.png")
-  // meta(name="twitter:site" content="@MKDesignzManuel")
-  // meta(name="twitter:creator" content="@MKDesignzManuel")
-
   title = '';
   description = '';
   slug = '';
