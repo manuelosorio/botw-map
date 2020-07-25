@@ -262,24 +262,6 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/creat
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var Meta = /*#__PURE__*/function () {
-  // title LoZ: Breath of The Wild
-  // meta(name="Author" content="Manuel Osorio")
-  // meta(name="description" content="Interactive Map showing locations of important mostly important items")
-  //
-  // // Open Graph - Facebook, Google, LinkedIn
-  // meta(property="og:type" content="Article")
-  // meta(property="og:description" content="Interactive Map showing locations of important mostly important items")
-  // meta(property="og:image" content="./images/thumb.png")
-  // meta(property="og:url" content="#")
-  // meta(property="og:site_name" content="LoZ: Breath of The Wild")
-  // //end Open Graph
-  //
-  // //Twitter Meta Content
-  // meta(name="twitter:title" content="LoZ: Breath of The Wild")
-  // meta(name="twitter:description" content="Interactive Map showing locations of important mostly important items")
-  // meta(name="twitter:image" content="./images/thumb.png")
-  // meta(name="twitter:site" content="@MKDesignzManuel")
-  // meta(name="twitter:creator" content="@MKDesignzManuel")
   function Meta(title, description, slug) {
     (0, _classCallCheck2["default"])(this, Meta);
     (0, _defineProperty2["default"])(this, "title", '');
@@ -409,8 +391,28 @@ function routes() {
     meta.openGraph();
     meta.twitter();
   });
+  /*
+    remove fbclid script is from:
+    https://www.michalspacek.com/using-javascript-to-modify-urls-and-hide-fbclid
+   */
 
-  if (!(window.location.href.indexOf('/#/') > 1)) {
+  var param = 'fbclid';
+
+  if (location.search.indexOf(param + '=') !== -1) {
+    var replace = '';
+
+    try {
+      var url = new URL(location);
+      url.searchParams["delete"](param);
+      replace = url.href;
+    } catch (ex) {
+      var regExp = new RegExp('[?&]' + param + '=.*$');
+      replace = location.search.replace(regExp, '');
+      replace = location.pathname + replace + location.hash;
+    }
+
+    history.replaceState(null, '', replace);
+  } else if (!(window.location.href.indexOf('/#/') > 1)) {
     console.log(false);
     router.navigate('/');
   }
