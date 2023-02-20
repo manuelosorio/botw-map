@@ -55,16 +55,16 @@
     "gulp-clean": "^0.4.0",
     "gulp-file": "^0.4.0",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-imagemin": "^5.0.3",
+    "gulp-imagemin": "^8.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-pug": "^4.0.1",
-    "gulp-uglify-es": "^1.0.4",
+    "gulp-pug": "^5.0.0",
+    "gulp-uglify-es": "^2.0.0",
     "jquery": "^3.5.1",
     "jqueryrouter": "^2.2.12",
     "navigo": "^7.1.2",
     "node.normalize.scss": "^3.0.3",
-    "snyk": "^1.363.0"
+    "snyk": "^1.1064.0"
   },
   "snyk": true
 }
