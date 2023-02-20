@@ -60,7 +60,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-pug": "^5.0.0",
     "gulp-uglify-es": "^2.0.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.3",
     "jqueryrouter": "^2.2.12",
     "navigo": "^7.1.2",
     "node.normalize.scss": "^3.0.3",
