@@ -43,7 +43,7 @@
     "gulp-dart-sass": "^0.9.1",
     "gulp-jsdoc3": "^3.0.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "node-bourbon": "^4.2.8",
